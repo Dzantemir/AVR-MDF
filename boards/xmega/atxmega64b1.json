@@ -1,0 +1,26 @@
+{
+  "name": "ATxmega64B1",
+  "vendor": "ATxmega",
+  "build": {
+    "mcu": "atxmega64b1",
+    "family": "xmega",
+    "f_cpu": "2000000UL",
+    "f_cpu_hz": 2000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 65536,
+      "ram": 4096,
+      "eeprom": 2048
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 65536,
+    "maximum_ram_size": 4096,
+    "maximum_eeprom_size": 2048,
+    "protocol": "atmelice_pdi",
+    "speed": "",
+    "signature": "",
+    "note": "PDI interface — Atmel-ICE, JTAGICE mkII/3, Power Debugger"
+  }
+}

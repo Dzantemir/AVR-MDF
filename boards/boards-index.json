@@ -1,0 +1,9 @@
+{
+  "vendors": {
+    "atmega": "ATmega (classic & 0/1-series)",
+    "attiny": "ATtiny (classic & 0/1/2-series)",
+    "xmega": "ATxmega",
+    "arduino": "Arduino boards",
+    "other": "Other AVR"
+  }
+}

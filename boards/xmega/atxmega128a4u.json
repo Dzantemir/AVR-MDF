@@ -1,0 +1,26 @@
+{
+  "name": "ATxmega128A4U",
+  "vendor": "ATxmega",
+  "build": {
+    "mcu": "atxmega128a4u",
+    "family": "xmega",
+    "f_cpu": "2000000UL",
+    "f_cpu_hz": 2000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 131072,
+      "ram": 8192,
+      "eeprom": 2048
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 131072,
+    "maximum_ram_size": 8192,
+    "maximum_eeprom_size": 2048,
+    "protocol": "atmelice_pdi",
+    "speed": "",
+    "signature": "",
+    "note": "PDI interface — Atmel-ICE, JTAGICE mkII/3, Power Debugger"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "ATxmega16E5",
+  "vendor": "ATxmega",
+  "url": "https://www.microchip.com/en-us/product/ATxmega16E5",
+  "build": {
+    "mcu": "atxmega16e5",
+    "family": "xmega",
+    "f_cpu": "2000000UL",
+    "f_cpu_hz": 2000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 16384,
+      "ram": 2048,
+      "eeprom": 1024
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 16384,
+    "maximum_ram_size": 2048,
+    "maximum_eeprom_size": 1024,
+    "protocol": "atmelice_pdi",
+    "speed": "",
+    "signature": "",
+    "note": "PDI interface — Atmel-ICE, JTAGICE mkII/3, Power Debugger"
+  }
+}

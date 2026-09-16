@@ -1,0 +1,27 @@
+{
+  "name": "ATxmega256A3",
+  "vendor": "ATxmega",
+  "url": "https://www.microchip.com/en-us/product/ATxmega256A3",
+  "build": {
+    "mcu": "atxmega256a3",
+    "family": "xmega",
+    "f_cpu": "2000000UL",
+    "f_cpu_hz": 2000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 262144,
+      "ram": 16384,
+      "eeprom": 4096
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 262144,
+    "maximum_ram_size": 16384,
+    "maximum_eeprom_size": 4096,
+    "protocol": "atmelice_pdi",
+    "speed": "",
+    "signature": "",
+    "note": "PDI interface — Atmel-ICE, JTAGICE mkII/3, Power Debugger"
+  }
+}

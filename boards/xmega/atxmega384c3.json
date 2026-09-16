@@ -1,0 +1,26 @@
+{
+  "name": "ATxmega384C3",
+  "vendor": "ATxmega",
+  "build": {
+    "mcu": "atxmega384c3",
+    "family": "xmega",
+    "f_cpu": "2000000UL",
+    "f_cpu_hz": 2000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 393216,
+      "ram": 32768,
+      "eeprom": 4096
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 393216,
+    "maximum_ram_size": 32768,
+    "maximum_eeprom_size": 4096,
+    "protocol": "atmelice_pdi",
+    "speed": "",
+    "signature": "",
+    "note": "PDI interface — Atmel-ICE, JTAGICE mkII/3, Power Debugger. Memory values are best-effort — verify in the datasheet"
+  }
+}

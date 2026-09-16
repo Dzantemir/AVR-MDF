@@ -1,0 +1,26 @@
+{
+  "name": "ATxmega32C4",
+  "vendor": "ATxmega",
+  "build": {
+    "mcu": "atxmega32c4",
+    "family": "xmega",
+    "f_cpu": "2000000UL",
+    "f_cpu_hz": 2000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 32768,
+      "ram": 4096,
+      "eeprom": 1024
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 32768,
+    "maximum_ram_size": 4096,
+    "maximum_eeprom_size": 1024,
+    "protocol": "atmelice_pdi",
+    "speed": "",
+    "signature": "",
+    "note": "PDI interface — Atmel-ICE, JTAGICE mkII/3, Power Debugger"
+  }
+}
