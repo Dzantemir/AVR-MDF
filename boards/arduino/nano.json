@@ -1,0 +1,31 @@
+{
+  "name": "Arduino Nano",
+  "vendor": "Arduino",
+  "url": "https://www.arduino.cc/",
+  "build": {
+    "mcu": "atmega328p",
+    "family": "classic",
+    "f_cpu": "16000000UL",
+    "f_cpu_hz": 16000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 32768,
+      "ram": 2048,
+      "eeprom": 1024
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 32768,
+    "maximum_ram_size": 2048,
+    "maximum_eeprom_size": 1024,
+    "protocol": "arduino",
+    "speed": "115200",
+    "signature": "0x1E950F",
+    "note": "Optiboot bootloader via onboard USB-serial converter (FTDI)"
+  },
+  "led": {
+    "port": "B",
+    "bit": 5
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Arduino Pro Mini 3.3V 8MHz",
+  "vendor": "Arduino",
+  "url": "https://www.arduino.cc/",
+  "build": {
+    "mcu": "atmega328p",
+    "family": "classic",
+    "f_cpu": "8000000UL",
+    "f_cpu_hz": 8000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 32768,
+      "ram": 2048,
+      "eeprom": 1024
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 32768,
+    "maximum_ram_size": 2048,
+    "maximum_eeprom_size": 1024,
+    "protocol": "arduino",
+    "speed": "115200",
+    "signature": "0x1E950F",
+    "note": "Optiboot bootloader; needs external USB-serial adapter"
+  },
+  "led": {
+    "port": "B",
+    "bit": 5
+  }
+}

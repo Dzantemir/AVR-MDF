@@ -1,0 +1,31 @@
+{
+  "name": "Arduino Mega 2560",
+  "vendor": "Arduino",
+  "url": "https://www.arduino.cc/",
+  "build": {
+    "mcu": "atmega2560",
+    "family": "classic",
+    "f_cpu": "16000000UL",
+    "f_cpu_hz": 16000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 262144,
+      "ram": 8192,
+      "eeprom": 4096
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 262144,
+    "maximum_ram_size": 8192,
+    "maximum_eeprom_size": 4096,
+    "protocol": "arduino",
+    "speed": "115200",
+    "signature": "0x1E9802",
+    "note": "Optiboot bootloader via onboard USB-serial converter"
+  },
+  "led": {
+    "port": "B",
+    "bit": 7
+  }
+}

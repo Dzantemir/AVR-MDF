@@ -1,0 +1,31 @@
+{
+  "name": "Arduino Micro",
+  "vendor": "Arduino",
+  "url": "https://www.arduino.cc/",
+  "build": {
+    "mcu": "atmega32u4",
+    "family": "classic",
+    "f_cpu": "16000000UL",
+    "f_cpu_hz": 16000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 32768,
+      "ram": 2560,
+      "eeprom": 1024
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 32768,
+    "maximum_ram_size": 2560,
+    "maximum_eeprom_size": 1024,
+    "protocol": "avr109",
+    "speed": "57600",
+    "signature": "0x1E9587",
+    "note": "Caterina bootloader over native USB"
+  },
+  "led": {
+    "port": "C",
+    "bit": 7
+  }
+}
