@@ -1,0 +1,27 @@
+{
+  "name": "ATmega168",
+  "vendor": "megaAVR",
+  "url": "https://www.microchip.com/en-us/product/ATmega168",
+  "build": {
+    "mcu": "atmega168",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 16384,
+      "ram": 1024,
+      "eeprom": 512
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 16384,
+    "maximum_ram_size": 1024,
+    "maximum_eeprom_size": 512,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "0x1E9406",
+    "note": ""
+  }
+}

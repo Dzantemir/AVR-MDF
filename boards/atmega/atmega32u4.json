@@ -1,0 +1,27 @@
+{
+  "name": "ATmega32U4",
+  "vendor": "megaAVR",
+  "url": "https://www.microchip.com/en-us/product/ATmega32U4",
+  "build": {
+    "mcu": "atmega32u4",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 32768,
+      "ram": 2560,
+      "eeprom": 1024
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 32768,
+    "maximum_ram_size": 2560,
+    "maximum_eeprom_size": 1024,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "0x1E9587",
+    "note": "Native USB (LUFA); Arduino Leonardo/Micro bootloader uses avr109"
+  }
+}

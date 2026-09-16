@@ -1,0 +1,26 @@
+{
+  "name": "ATmega2564RFR2",
+  "vendor": "megaAVR",
+  "build": {
+    "mcu": "atmega2564rfr2",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 262144,
+      "ram": 32768,
+      "eeprom": 4096
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 262144,
+    "maximum_ram_size": 32768,
+    "maximum_eeprom_size": 4096,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "2.4GHz IEEE 802.15.4 radio on-chip"
+  }
+}

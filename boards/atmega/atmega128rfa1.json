@@ -1,0 +1,26 @@
+{
+  "name": "ATmega128RFA1",
+  "vendor": "megaAVR",
+  "build": {
+    "mcu": "atmega128rfa1",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 131072,
+      "ram": 16384,
+      "eeprom": 4096
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 131072,
+    "maximum_ram_size": 16384,
+    "maximum_eeprom_size": 4096,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "2.4GHz IEEE 802.15.4 radio on-chip"
+  }
+}

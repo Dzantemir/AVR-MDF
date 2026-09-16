@@ -1,0 +1,26 @@
+{
+  "name": "ATmega329PA",
+  "vendor": "megaAVR",
+  "build": {
+    "mcu": "atmega329pa",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 32768,
+      "ram": 2048,
+      "eeprom": 1024
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 32768,
+    "maximum_ram_size": 2048,
+    "maximum_eeprom_size": 1024,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "LCD driver on-chip"
+  }
+}

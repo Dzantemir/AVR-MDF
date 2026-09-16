@@ -1,0 +1,26 @@
+{
+  "name": "ATmega64RFR2",
+  "vendor": "megaAVR",
+  "build": {
+    "mcu": "atmega64rfr2",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 65536,
+      "ram": 8192,
+      "eeprom": 4096
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 65536,
+    "maximum_ram_size": 8192,
+    "maximum_eeprom_size": 4096,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "2.4GHz IEEE 802.15.4 radio on-chip"
+  }
+}

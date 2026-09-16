@@ -1,0 +1,26 @@
+{
+  "name": "ATmega88A",
+  "vendor": "megaAVR",
+  "build": {
+    "mcu": "atmega88a",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 8192,
+      "ram": 1024,
+      "eeprom": 512
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 8192,
+    "maximum_ram_size": 1024,
+    "maximum_eeprom_size": 512,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": ""
+  }
+}
