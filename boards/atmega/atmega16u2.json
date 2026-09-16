@@ -1,0 +1,26 @@
+{
+  "name": "ATmega16U2",
+  "vendor": "megaAVR",
+  "build": {
+    "mcu": "atmega16u2",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 16384,
+      "ram": 512,
+      "eeprom": 512
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 16384,
+    "maximum_ram_size": 512,
+    "maximum_eeprom_size": 512,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "USB 2.0 full-speed device (the Uno AT16U2 bridge)"
+  }
+}

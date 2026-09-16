@@ -1,0 +1,27 @@
+{
+  "name": "ATmega16U4",
+  "vendor": "megaAVR",
+  "url": "https://www.microchip.com/en-us/product/ATmega16U4",
+  "build": {
+    "mcu": "atmega16u4",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 16384,
+      "ram": 1280,
+      "eeprom": 512
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 16384,
+    "maximum_ram_size": 1280,
+    "maximum_eeprom_size": 512,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "Native USB (LUFA); Arduino Micro-class bootloader uses avr109"
+  }
+}
