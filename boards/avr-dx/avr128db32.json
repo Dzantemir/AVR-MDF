@@ -1,0 +1,26 @@
+{
+  "name": "AVR128DB32",
+  "vendor": "AVR DB",
+  "build": {
+    "mcu": "avr128db32",
+    "family": "modern",
+    "f_cpu": "24000000UL",
+    "f_cpu_hz": 24000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 131072,
+      "ram": 16384,
+      "eeprom": 512
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 131072,
+    "maximum_ram_size": 16384,
+    "maximum_eeprom_size": 512,
+    "protocol": "serialupdi",
+    "speed": "",
+    "signature": "",
+    "note": "Needs a UPDI programmer (serialupdi / jtag2updi / Atmel-ICE / PICkit4 / SNAP); DB adds a second FVRSRAM + 12-bit differential ADC"
+  }
+}

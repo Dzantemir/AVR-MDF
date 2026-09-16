@@ -1,0 +1,26 @@
+{
+  "name": "AT86RF401",
+  "vendor": "Classic AT90",
+  "build": {
+    "mcu": "at86rf401",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 2048,
+      "ram": 128,
+      "eeprom": 128
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 2048,
+    "maximum_ram_size": 128,
+    "maximum_eeprom_size": 128,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "Memory values are best-effort — verify in the datasheet; RF transmitter"
+  }
+}

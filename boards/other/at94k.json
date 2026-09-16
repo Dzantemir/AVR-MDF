@@ -1,0 +1,26 @@
+{
+  "name": "AT94K",
+  "vendor": "Classic AT90",
+  "build": {
+    "mcu": "at94k",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 8192,
+      "ram": 1024,
+      "eeprom": 0
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 8192,
+    "maximum_ram_size": 1024,
+    "maximum_eeprom_size": 0,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "FPSLIC — AVR + FPGA SoC. Memory values are best-effort — verify in the datasheet"
+  }
+}

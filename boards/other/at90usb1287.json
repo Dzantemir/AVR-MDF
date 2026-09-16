@@ -1,0 +1,26 @@
+{
+  "name": "AT90USB1287",
+  "vendor": "Classic AT90",
+  "build": {
+    "mcu": "at90usb1287",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 131072,
+      "ram": 8192,
+      "eeprom": 4096
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 131072,
+    "maximum_ram_size": 8192,
+    "maximum_eeprom_size": 4096,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "USB host-capable"
+  }
+}

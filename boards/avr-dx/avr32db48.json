@@ -1,0 +1,26 @@
+{
+  "name": "AVR32DB48",
+  "vendor": "AVR DB",
+  "build": {
+    "mcu": "avr32db48",
+    "family": "modern",
+    "f_cpu": "24000000UL",
+    "f_cpu_hz": 24000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 32768,
+      "ram": 4096,
+      "eeprom": 512
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 32768,
+    "maximum_ram_size": 4096,
+    "maximum_eeprom_size": 512,
+    "protocol": "serialupdi",
+    "speed": "",
+    "signature": "",
+    "note": "Needs a UPDI programmer (serialupdi / jtag2updi / Atmel-ICE / PICkit4 / SNAP)"
+  }
+}

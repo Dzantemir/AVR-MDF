@@ -1,0 +1,27 @@
+{
+  "name": "AT90CAN128",
+  "vendor": "Classic AT90",
+  "url": "https://www.microchip.com/en-us/product/AT90CAN128",
+  "build": {
+    "mcu": "at90can128",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 131072,
+      "ram": 4096,
+      "eeprom": 4096
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 131072,
+    "maximum_ram_size": 4096,
+    "maximum_eeprom_size": 4096,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "On-chip CAN 2.0A/B controller"
+  }
+}

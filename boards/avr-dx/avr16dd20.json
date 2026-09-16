@@ -1,0 +1,26 @@
+{
+  "name": "AVR16DD20",
+  "vendor": "AVR DD",
+  "build": {
+    "mcu": "avr16dd20",
+    "family": "modern",
+    "f_cpu": "24000000UL",
+    "f_cpu_hz": 24000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 16384,
+      "ram": 2048,
+      "eeprom": 256
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 16384,
+    "maximum_ram_size": 2048,
+    "maximum_eeprom_size": 256,
+    "protocol": "serialupdi",
+    "speed": "",
+    "signature": "",
+    "note": "Needs a UPDI programmer (serialupdi / jtag2updi / Atmel-ICE / PICkit4 / SNAP); DD = small modern AVR with 10-bit ADC + OPAMP"
+  }
+}
