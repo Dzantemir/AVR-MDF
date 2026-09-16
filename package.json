@@ -1,0 +1,834 @@
+{
+	"name": "avr-mdf",
+	"displayName": "AVR-MDF",
+	"description": "Microcontroller Development Framework — build, flash, fuses & debug AVR projects (ATmega / ATtiny / ATxmega) with TWO switchable compilers: GNU avr-gcc + avr-libc or Microchip XC8 (xc8-cc); avrdude flashing and simavr debugging from VS Code",
+	"version": "0.3.24",
+	"publisher": "Dzantemir",
+	"author": "Dzantemir",
+	"license": "MIT",
+	"homepage": "https://github.com/Dzantemir/avr-mdf#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Dzantemir/avr-mdf.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Dzantemir/avr-mdf/issues"
+	},
+	"icon": "media/extension-icon.png",
+	"galleryBanner": {
+		"color": "#141a14",
+		"theme": "dark"
+	},
+	"markdown": "github",
+	"qna": false,
+	"badges": [
+		{
+			"url": "https://img.shields.io/badge/version-0.3.24-orange",
+			"href": "https://github.com/Dzantemir/avr-mdf",
+			"description": "Latest version: 0.3.24"
+		},
+		{
+			"url": "https://img.shields.io/badge/license-MIT-green",
+			"href": "https://github.com/Dzantemir/avr-mdf/blob/main/LICENSE.txt",
+			"description": "License: MIT"
+		},
+		{
+			"url": "https://img.shields.io/badge/avr--libc-2.x-blue",
+			"href": "https://www.nongnu.org/avr-libc/",
+			"description": "avr-libc 2.x"
+		},
+		{
+			"url": "https://img.shields.io/badge/avrdude-6..7-purple",
+			"href": "https://avrdudes.github.io/avrdude/",
+			"description": "avrdude 6/7"
+		},
+		{
+			"url": "https://img.shields.io/badge/MPLAB--XC8-v2.x-teal",
+			"href": "https://www.microchip.com/en-us/products/compilers-and-ide/mplab-xc-compilers/xc8",
+			"description": "MPLAB XC8 v2.x"
+		}
+	],
+	"preview": true,
+	"engines": {
+		"vscode": "^1.75.0"
+	},
+	"categories": [
+		"Programming Languages",
+		"Debuggers",
+		"Other"
+	],
+	"keywords": [
+		"avr",
+		"avr-gcc",
+		"avrdude",
+		"avr-libc",
+		"xc8",
+		"microchip",
+		"atmega",
+		"attiny",
+		"arduino",
+		"simavr",
+		"embedded",
+		"flash",
+		"fuses"
+	],
+	"main": "./src/extension.js",
+	"activationEvents": [
+		"onView:avr.projectView",
+		"onView:avr.memoryView",
+		"onView:avr.monitorView",
+		"onView:avr.devtoolsView",
+		"onView:avr.libcView",
+		"onDebugResolve:avr",
+		"workspaceContains:avr-project.json"
+	],
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "avr-explorer",
+					"title": "AVR-MDF",
+					"icon": "media/icon_mono.svg"
+				}
+			]
+		},
+		"views": {
+			"avr-explorer": [
+				{
+					"id": "avr.projectView",
+					"name": "Project & Commands",
+					"icon": "media/icon_mono.svg",
+					"contextualTitle": "Project & Commands (AVR-MDF)"
+				},
+				{
+					"id": "avr.memoryView",
+					"name": "Memory",
+					"type": "webview",
+					"icon": "media/icon_mono.svg",
+					"contextualTitle": "Memory (AVR-MDF)"
+				},
+				{
+					"id": "avr.monitorView",
+					"name": "Serial Monitor",
+					"type": "webview",
+					"icon": "media/icon_mono.svg",
+					"contextualTitle": "Serial Monitor (AVR-MDF)"
+				},
+				{
+					"id": "avr.devtoolsView",
+					"name": "Development Tools",
+					"icon": "media/icon_mono.svg",
+					"contextualTitle": "Development Tools (AVR-MDF)"
+				},
+				{
+					"id": "avr.libcView",
+					"name": "AVR-Libc Reference",
+					"icon": "media/icon_mono.svg",
+					"contextualTitle": "AVR-Libc Reference (AVR-MDF)"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "avr.build",
+				"title": "AVR: Build",
+				"icon": "$(tools)"
+			},
+			{
+				"command": "avr.flash",
+				"title": "AVR: Flash",
+				"icon": "$(zap)"
+			},
+			{
+				"command": "avr.clean",
+				"title": "AVR: Clean",
+				"icon": "$(trash)"
+			},
+			{
+				"command": "avr.openMonitor",
+				"title": "AVR: Open Serial Monitor",
+				"icon": "$(radio-tower)"
+			},
+			{
+				"command": "avr.monitor.start",
+				"title": "AVR: Start Monitor",
+				"icon": "$(play)"
+			},
+			{
+				"command": "avr.monitor.stop",
+				"title": "AVR: Stop Monitor",
+				"icon": "$(debug-stop)"
+			},
+			{
+				"command": "avr.monitor.clear",
+				"title": "AVR: Clear Monitor Output",
+				"icon": "$(clear-all)"
+			},
+			{
+				"command": "avr.monitor.refreshPorts",
+				"title": "AVR: Refresh Serial Ports",
+				"icon": "$(refresh)"
+			},
+			{
+				"command": "avr.createProject",
+				"title": "AVR: Create New Project",
+				"icon": "$(new-folder)"
+			},
+			{
+				"command": "avr.importProject",
+				"title": "AVR: Import Project from Other IDE…",
+				"icon": "$(desktop-download)"
+			},
+			{
+				"command": "avr.selectProject",
+				"title": "AVR: Select Project",
+				"icon": "$(folder)"
+			},
+			{
+				"command": "avr.clearProject",
+				"title": "AVR: Clear Project",
+				"icon": "$(close)"
+			},
+			{
+				"command": "avr.editProject",
+				"title": "AVR: Edit Project",
+				"icon": "$(edit)"
+			},
+			{
+				"command": "avr.syncLaunchConfigs",
+				"title": "AVR: Add Debug Configurations to launch.json",
+				"icon": "$(debug-alt)"
+			},
+			{
+				"command": "avr.generateTasks",
+				"title": "AVR: Regenerate tasks.json",
+				"icon": "$(sync)"
+			},
+			{
+				"command": "avr.showProblems",
+				"title": "AVR: Show Project Problems",
+				"icon": "$(warning)"
+			},
+			{
+				"command": "avr.selectBoard",
+				"title": "AVR: Select Board (MCU)",
+				"icon": "$(circuit-board)"
+			},
+			{
+				"command": "avr.manageBoards",
+				"title": "AVR: Manage Boards (MCU definitions)",
+				"icon": "$(circuit-board)"
+			},
+			{
+				"command": "avr.exportBoards",
+				"title": "AVR: Export User Boards (backup)",
+				"icon": "$(cloud-upload)"
+			},
+			{
+				"command": "avr.importBoards",
+				"title": "AVR: Import Boards from Backup…",
+				"icon": "$(cloud-download)"
+			},
+			{
+				"command": "avr.selectToolchain",
+				"title": "AVR: Select Toolchain Path",
+				"icon": "$(folder-opened)"
+			},
+			{
+				"command": "avr.selectXc8Path",
+				"title": "AVR: Select XC8 Compiler Path",
+				"icon": "$(folder-opened)"
+			},
+			{
+				"command": "avr.switchToolchain",
+				"title": "AVR: Switch Toolchain (GNU avr-gcc ⇄ Microchip XC8)",
+				"icon": "$(arrow-swap)"
+			},
+			{
+				"command": "avr.selectProgrammer",
+				"title": "AVR: Select Programmer",
+				"icon": "$(plug)"
+			},
+			{
+				"command": "avr.selectPort",
+				"title": "AVR: Select Port",
+				"icon": "$(plug)"
+			},
+			{
+				"command": "avr.configureIntelliSense",
+				"title": "AVR: Configure IntelliSense (C/C++)",
+				"icon": "$(lightbulb)"
+			},
+			{
+				"command": "avr.toggleBuildMode",
+				"title": "AVR: Toggle Build Mode (Release/Debug)",
+				"icon": "$(sync)"
+			},
+			{
+				"command": "avr.refreshMemory",
+				"title": "AVR: Refresh Memory Report",
+				"icon": "$(refresh)"
+			},
+			{
+				"command": "avr.fuses.open",
+				"title": "AVR: Open Fuse Editor…",
+				"icon": "$(settings-gear)"
+			},
+			{
+				"command": "avr.eeprom.upload",
+				"title": "AVR: Upload EEPROM Image to Chip",
+				"icon": "$(cloud-upload)"
+			},
+			{
+				"command": "avr.eeprom.download",
+				"title": "AVR: Download EEPROM (Read from Chip)",
+				"icon": "$(cloud-download)"
+			},
+			{
+				"command": "avr.avrdude.erase",
+				"title": "AVR: Chip Erase (avrdude)",
+				"icon": "$(zap)"
+			},
+			{
+				"command": "avr.showDisassembly",
+				"title": "AVR: Show Disassembly",
+				"icon": "$(file-code)"
+			},
+			{
+				"command": "avr.libc.insert",
+				"title": "AVR: Insert #include from AVR-Libc…",
+				"icon": "$(add)"
+			},
+			{
+				"command": "avr.libc.doc",
+				"title": "AVR: AVR-Libc Function Details…",
+				"icon": "$(book)"
+			},
+			{
+				"command": "avr.refresh",
+				"title": "AVR: Refresh",
+				"icon": "$(refresh)"
+			},
+			{
+				"command": "avr.collapseAll",
+				"title": "AVR: Collapse All",
+				"icon": "$(collapse-all)"
+			},
+			{
+				"command": "avr.openSettings",
+				"title": "AVR: Open Settings",
+				"icon": "$(settings-gear)"
+			},
+			{
+				"command": "avr.returnViews",
+				"title": "AVR: Return Views to the Sidebar",
+				"icon": "$(undo)",
+				"category": "AVR"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "avr.build",
+				"key": "ctrl+alt+b",
+				"mac": "cmd+alt+b",
+				"when": "!avr.busy"
+			},
+			{
+				"command": "avr.flash",
+				"key": "ctrl+alt+f",
+				"mac": "cmd+alt+f",
+				"when": "!avr.busy"
+			},
+			{
+				"command": "avr.clean",
+				"key": "ctrl+alt+c",
+				"mac": "cmd+alt+c",
+				"when": "!avr.busy"
+			},
+			{
+				"command": "avr.openMonitor",
+				"key": "ctrl+alt+m",
+				"mac": "cmd+alt+m"
+			},
+			{
+				"command": "workbench.action.debug.start",
+				"key": "ctrl+alt+d",
+				"mac": "cmd+alt+d"
+			},
+			{
+				"command": "avr.switchToolchain",
+				"key": "ctrl+alt+t",
+				"mac": "cmd+alt+t",
+				"when": "!avr.busy"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "avr.refresh",
+					"when": "false"
+				},
+				{
+					"command": "avr.collapseAll",
+					"when": "false"
+				}
+			],
+			"view/title": [
+				{
+					"command": "avr.refresh",
+					"when": "view == avr.projectView",
+					"group": "navigation@1"
+				},
+				{
+					"command": "avr.collapseAll",
+					"when": "view == avr.projectView",
+					"group": "navigation@2"
+				},
+				{
+					"command": "avr.refreshMemory",
+					"when": "view == avr.memoryView",
+					"group": "navigation@1"
+				},
+				{
+					"command": "avr.monitor.clear",
+					"when": "view == avr.monitorView",
+					"group": "navigation@1"
+				},
+				{
+					"command": "avr.monitor.refreshPorts",
+					"when": "view == avr.monitorView",
+					"group": "navigation@2"
+				},
+				{
+					"command": "avr.refresh",
+					"when": "view == avr.devtoolsView",
+					"group": "navigation@1"
+				},
+				{
+					"command": "avr.refresh",
+					"when": "view == avr.libcView",
+					"group": "navigation@1"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "avr.libc.insert",
+					"when": "view == avr.libcView && viewItem == avrlibc.module",
+					"group": "inline@1"
+				},
+				{
+					"command": "avr.libc.doc",
+					"when": "view == avr.libcView && viewItem == avrlibc.function",
+					"group": "inline@1"
+				},
+				{
+					"command": "avr.editProject",
+					"when": "view == avr.projectView && viewItem == projectItem",
+					"group": "inline@1"
+				},
+				{
+					"command": "avr.clearProject",
+					"when": "view == avr.projectView && viewItem == projectItem",
+					"group": "inline@2"
+				}
+			]
+		},
+		"taskDefinitions": [
+			{
+				"type": "avr",
+				"required": [],
+				"properties": {
+					"action": {
+						"type": "string",
+						"enum": [
+							"build",
+							"flash",
+							"clean"
+						],
+						"description": "Which AVR-MDF command the task runs (default: build)."
+					}
+				}
+			}
+		],
+		"problemMatchers": [
+			{
+				"name": "avr",
+				"owner": "cpp",
+				"fileLocation": [
+					"relative",
+					"${workspaceFolder}"
+				],
+				"pattern": {
+					"regexp": "^(.*?):(\\d+):(\\d+)?\\s*(fatal error|error|warning)?:?\\s*(?:\\d+:)?\\s*(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				}
+			},
+			{
+				"name": "avr-ld",
+				"owner": "cpp",
+				"fileLocation": [
+					"relative",
+					"${workspaceFolder}"
+				],
+				"pattern": {
+					"regexp": "^(.*?):(\\d+)\\s*:\\s*(.*)$",
+					"file": 1,
+					"line": 2,
+					"message": 3
+				}
+			}
+		],
+		"debuggers": [
+			{
+				"type": "avr",
+				"label": "AVR Debug (simavr · hardware GDB)",
+				"languages": [
+					"c",
+					"cpp"
+				],
+				"initialConfigurations": [
+					{
+						"type": "avr",
+						"request": "launch",
+						"name": "AVR: Debug (simavr)"
+					}
+				],
+				"configurationSnippets": [
+					{
+						"label": "AVR: Debug on the simavr simulator",
+						"description": "Starts simavr (-g) with the project firmware ELF and drives avr-gdb (MI) — breakpoints, stepping, variables, memory. F5 also works without launch.json.",
+						"body": {
+							"type": "avr",
+							"request": "launch",
+							"name": "AVR: Debug (simavr)"
+						}
+					},
+					{
+						"label": "AVR: Debug on hardware (GDB server)",
+						"description": "Attaches avr-gdb to any GDB-RSP server wired to the chip (avarice, Atmel-ICE / JTAGICE / Dragon via avarice, or simavr started manually) — or leave gdbServerCmd empty and start the server yourself.",
+						"body": {
+							"type": "avr",
+							"request": "launch",
+							"backend": "gdb",
+							"name": "AVR: Debug (hardware GDB)",
+							"program": "${workspaceFolder}/build/firmware.elf",
+							"gdbHost": "127.0.0.1",
+							"gdbPort": 4242,
+							"gdbServerCmd": "avarice --jtag /dev/ttyUSB0 :4242"
+						}
+					}
+				],
+				"configurationAttributes": {
+					"launch": {
+						"properties": {
+							"program": {
+								"type": "string",
+								"description": "Firmware ELF to load (with debug info). Omitted → the active project's build output."
+							},
+							"backend": {
+								"type": "string",
+								"enum": [
+									"sim",
+									"gdb"
+								],
+								"description": "sim (default): the extension starts simavr -g. gdb: attach to a GDB server (avarice, simavr started by hand, …)."
+							},
+							"mcu": {
+								"type": "string",
+								"description": "simavr -m core (defaults to the project board's mcu)."
+							},
+							"freq": {
+								"type": "number",
+								"description": "Clock in Hz for simavr -f (defaults to the board's f_cpu)."
+							},
+							"simPath": {
+								"type": "string",
+								"description": "simavr executable override (default: avr.debug.simPath / auto-detect)."
+							},
+							"simPort": {
+								"type": "number",
+								"description": "TCP port for simavr's gdb server (default: a free port)."
+							},
+							"simArgs": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								},
+								"description": "Extra simavr arguments (e.g. \"-ti 11\" to trace an IRQ vector, \"-v\")."
+							},
+							"gdbPath": {
+								"type": "string",
+								"description": "avr-gdb executable override (default: avr.debug.gdbPath / auto-detect)."
+							},
+							"gdbHost": {
+								"type": "string",
+								"description": "GDB server host (backend gdb, default 127.0.0.1)."
+							},
+							"gdbPort": {
+								"type": "number",
+								"description": "GDB server port (backend gdb, default 4242)."
+							},
+							"gdbServerCmd": {
+								"type": "string",
+								"description": "Command the extension starts for the GDB server (backend gdb; empty → you start it yourself)."
+							},
+							"stopOnEntry": {
+								"type": "boolean",
+								"description": "Break on main() at start (default true)."
+							},
+							"cwd": {
+								"type": "string",
+								"description": "Working directory (default: the firmware's directory)."
+							},
+							"preRunCommands": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								},
+								"description": "GDB commands executed after loading the program (advanced)."
+							}
+						}
+					}
+				}
+			}
+		],
+		"configuration": {
+			"title": "AVR-MDF",
+			"properties": {
+				"avr.toolchainPath": {
+					"type": "string",
+					"default": "",
+					"markdownDescription": "avr-gcc toolchain — the `bin` folder, the prefix folder, the extracted distribution root (e.g. `avr-gcc-16.1.0-x64-windows` with `bin\\avr-gcc.exe` inside) or the `avr-gcc.exe` executable itself; any parent folder works too (deep scan). Empty = auto-detect (PATH → common install locations: Arduino IDE bundled tools, Microchip Studio, WinAVR, CrossPack…)."
+				},
+				"avr.avrdudePath": {
+					"type": "string",
+					"default": "",
+					"description": "avrdude executable override (auto-detected in the toolchain folder and on PATH otherwise)."
+				},
+				"avr.simavrPath": {
+					"type": "string",
+					"default": "",
+					"description": "simavr executable override (auto-detected on PATH otherwise)."
+				},
+				"avr.gdbPath": {
+					"type": "string",
+					"default": "",
+					"description": "avr-gdb executable override (auto-detected in the toolchain folder and on PATH otherwise)."
+				},
+				"avr.boardsDir": {
+					"type": "string",
+					"default": "",
+					"description": "Extra board JSON folder (priority: project .avr/boards → this → global ~/.avr-mdf/boards → built-in)."
+				},
+				"avr.comPort": {
+					"type": "string",
+					"default": "",
+					"description": "Serial port (COM3 / /dev/ttyUSB0 …)."
+				},
+				"avr.programmer": {
+					"type": "string",
+					"default": "",
+					"description": "Default avrdude programmer id (usbasp, usbtiny, arduino, avr109, serialupdi, atmelice_isp…). The project's upload.protocol wins when set."
+				},
+				"avr.shellPath": {
+					"type": "string",
+					"default": "",
+					"description": "Windows shell override (auto-detected otherwise; PowerShell / cmd / bash…)."
+				},
+				"avr.reuseTerminal": {
+					"type": "boolean",
+					"default": true,
+					"description": "Reuse the AVR terminal between commands."
+				},
+				"avr.saveSettingsToWorkspace": {
+					"type": "boolean",
+					"default": true,
+					"description": "Save port / programmer etc. to the workspace settings."
+				},
+				"avr.autoHexBin": {
+					"type": "boolean",
+					"default": true,
+					"description": "Also produce .bin (and .eep for the .eeprom section) after build."
+				},
+				"avr.postBuildAction": {
+					"type": "string",
+					"default": "none",
+					"enum": [
+						"none",
+						"flash"
+					],
+					"enumDescriptions": [
+						"Do nothing after a successful build",
+						"Flash the firmware right after a successful build"
+					],
+					"description": "Action after a successful build."
+				},
+				"avr.buildMode": {
+					"type": "string",
+					"default": "release",
+					"enum": [
+						"release",
+						"debug"
+					],
+					"enumDescriptions": [
+						"Optimized build (-Os, no debug info)",
+						"Debug build (-Og -gdwarf-2? → -g with DWARF for simavr/GDB + DEBUG define)"
+					],
+					"description": "Build mode."
+				},
+				"avr.avrdude.verbose": {
+					"type": "boolean",
+					"default": false,
+					"description": "Pass -v to avrdude (repeat with -vv for more)."
+				},
+				"avr.avrdude.verify": {
+					"type": "boolean",
+					"default": true,
+					"description": "Verify flash after writing (avrdude default; off adds -V)."
+				},
+				"avr.avrdude.eraseBeforeFlash": {
+					"type": "boolean",
+					"default": false,
+					"description": "Add an explicit chip erase (-e) before writing."
+				},
+				"avr.avrdude.extraArgs": {
+					"type": "string",
+					"default": "",
+					"description": "Extra global avrdude arguments (e.g. \"-C /path/avrdude.conf\"), inserted before -U operations."
+				},
+				"avr.memory.thresholdWarning": {
+					"type": "number",
+					"default": 85,
+					"description": "A memory area turns yellow at this percentage."
+				},
+				"avr.memory.historyLimit": {
+					"type": "number",
+					"default": 50,
+					"description": "Builds kept in the memory report history."
+				},
+				"avr.monitorBaud": {
+					"type": "number",
+					"default": 115200,
+					"description": "Default Serial Monitor baud rate."
+				},
+				"avr.monitorEol": {
+					"type": "string",
+					"default": "lf",
+					"enum": [
+						"lf",
+						"cr",
+						"crlf",
+						"none"
+					],
+					"description": "Send-line terminator."
+				},
+				"avr.monitorTimestamps": {
+					"type": "boolean",
+					"default": false,
+					"description": "Prefix received lines with a timestamp."
+				},
+				"avr.monitorAutoOpen": {
+					"type": "boolean",
+					"default": true,
+					"description": "Open the Serial Monitor after a successful flash."
+				},
+				"avr.debug.stopOnEntry": {
+					"type": "boolean",
+					"default": true,
+					"description": "Run to main() on F5."
+				},
+				"avr.debug.simPath": {
+					"type": "string",
+					"default": "",
+					"description": "Explicit simavr executable (empty = auto-detect)."
+				},
+				"avr.debug.gdbPath": {
+					"type": "string",
+					"default": "",
+					"description": "Explicit avr-gdb executable (empty = auto-detect)."
+				},
+				"avr.debug.clockFromBoard": {
+					"type": "boolean",
+					"default": true,
+					"description": "Feed the board's f_cpu to simavr (-f)."
+				},
+				"avr.debug.mcu": {
+					"type": "string",
+					"default": "",
+					"description": "Override the simulator MCU (simavr -m; defaults to the board's mcu)."
+				},
+				"avr.debug.syncLaunchJson": {
+					"type": "boolean",
+					"default": true,
+					"description": "Merge the debug records into launch.json automatically (add-if-missing)."
+				},
+				"avr.intellisense.autoConfig": {
+					"type": "boolean",
+					"default": true,
+					"description": "Add the AVR IntelliSense configuration when missing."
+				},
+				"avr.autoGenerateTasks": {
+					"type": "boolean",
+					"default": true,
+					"description": "Merge the three AVR tasks into .vscode/tasks.json when a project becomes active (add-if-missing, silent)."
+				},
+				"avr.xc8.path": {
+					"type": "string",
+					"default": "",
+					"markdownDescription": "Microchip MPLAB XC8 — the extracted distribution root (e.g. `xc8-v4.00` with `bin\\xc8-cc.exe` inside), a v2.x install dir, the `bin` folder or the `xc8-cc` executable itself; any parent folder works too (deep scan). Empty = auto-detect (PATH → `C:\\Program Files\\Microchip\\xc8\\v*\\bin` / `/opt/microchip/xc8/v*/bin` / `/Applications/microchip/xc8/v*/bin`)."
+				},
+				"avr.xc8.optimization": {
+					"type": "string",
+					"default": "default",
+					"enum": [
+						"default",
+						"0",
+						"1",
+						"2",
+						"3"
+					],
+					"enumDescriptions": [
+						"xc8-cc default optimization (no -O flag passed)",
+						"-O0 (none — fastest compiles, largest code)",
+						"-O1",
+						"-O2",
+						"-O3 (most aggressive)"
+					],
+					"description": "XC8 optimization level (-O flag; use avr.xc8.extraArgs for --opt= suboptions)."
+				},
+				"avr.xc8.cStandard": {
+					"type": "string",
+					"default": "c99",
+					"enum": [
+						"c90",
+						"c99"
+					],
+					"description": "C standard passed to xc8-cc (-std=). The XC8-for-AVR driver documents c89/c90/c99 only (User Guide Table 3-11) — C11 needs avr-gcc or a custom -std via avr.xc8.extraArgs.",
+					"enumDescriptions": [
+						"ISO C90 (the xc8-cc driver also accepts c89 as an alias)",
+						"ISO C99 — the xc8-cc default"
+					]
+				},
+				"avr.xc8.warnings": {
+					"type": "boolean",
+					"default": true,
+					"description": "Pass -Wall to xc8-cc."
+				},
+				"avr.xc8.extraArgs": {
+					"type": "string",
+					"default": "",
+					"description": "Extra xc8-cc arguments (e.g. \"--opt=+asm,+speed\" or \"-Werror\"), appended before the output."
+				}
+			}
+		}
+	},
+	"__metadata": {
+		"installedTimestamp": 1789589600169,
+		"targetPlatform": "undefined",
+		"size": 1120730
+	}
+}
