@@ -18,16 +18,6 @@
 
 ---
 
-## What's new in 0.3.24
-
-- 🏷️ **Marketplace upload fix: categories** — the upload was rejected with `The category 'Embedded' is not available in language 'en-us'`: the Marketplace accepts a fixed category list only and `Embedded` has never been on it. The extension now files under **Programming Languages**, **Debuggers** (it ships a real simavr/avr-gdb debug provider) and **Other**; `embedded` stays a search keyword. No extension code changed
-
-## What's new in 0.3.23
-
-- 📦 **Marketplace-ready VSIX packaging** — the VSIX manifest schema version is now the canonical `2.0.0` (it accidentally carried the extension version since the first release — VS Code's installer tolerated it, the publisher validation did not), the zip layout matches `vsce package` output (no directory entries, normalized file modes), and the package is built with the real `@vscode/vsce`. No extension code changed
-
-*Full history: [changelog.md](https://github.com/Dzantemir/avr-mdf/blob/HEAD/changelog.md)*
-
 ## Highlights
 
 - 🔀 **Two toolchains** — every project compiles with **GNU avr-gcc** (avr-libc, `F_CPU`, `ISR()`, simavr/avr-gdb debug) or **Microchip XC8** (`xc8-cc`: `<xc.h>`, `F_CPU` + `<util/delay.h>`, `#pragma config`, one-step compile+link → ELF → avr-objcopy → `.hex`; AVR *and* PIC 8-bit devices). Switch per project: status-bar chip, `Ctrl+Alt+T`, palette, wizard or project editor
