@@ -1,0 +1,26 @@
+{
+  "name": "ATtiny461",
+  "vendor": "tinyAVR (classic)",
+  "build": {
+    "mcu": "attiny461",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 4096,
+      "ram": 256,
+      "eeprom": 256
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 4096,
+    "maximum_ram_size": 256,
+    "maximum_eeprom_size": 256,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": ""
+  }
+}

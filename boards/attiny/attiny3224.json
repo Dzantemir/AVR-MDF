@@ -1,0 +1,26 @@
+{
+  "name": "ATtiny3224",
+  "vendor": "tinyAVR 2-series",
+  "build": {
+    "mcu": "attiny3224",
+    "family": "modern",
+    "f_cpu": "20000000UL",
+    "f_cpu_hz": 20000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 32768,
+      "ram": 3072,
+      "eeprom": 1024
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 32768,
+    "maximum_ram_size": 3072,
+    "maximum_eeprom_size": 1024,
+    "protocol": "serialupdi",
+    "speed": "",
+    "signature": "",
+    "note": "Needs a UPDI programmer (serialupdi / jtag2updi / Atmel-ICE / PICkit4 / SNAP)"
+  }
+}

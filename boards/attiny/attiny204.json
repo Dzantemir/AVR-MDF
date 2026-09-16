@@ -1,0 +1,27 @@
+{
+  "name": "ATtiny204",
+  "vendor": "tinyAVR 0-series",
+  "url": "https://www.microchip.com/en-us/product/ATtiny204",
+  "build": {
+    "mcu": "attiny204",
+    "family": "modern",
+    "f_cpu": "20000000UL",
+    "f_cpu_hz": 20000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 2048,
+      "ram": 128,
+      "eeprom": 64
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 2048,
+    "maximum_ram_size": 128,
+    "maximum_eeprom_size": 64,
+    "protocol": "serialupdi",
+    "speed": "",
+    "signature": "",
+    "note": "Needs a UPDI programmer (serialupdi / jtag2updi / Atmel-ICE / PICkit4 / SNAP)"
+  }
+}

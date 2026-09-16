@@ -1,0 +1,27 @@
+{
+  "name": "ATtiny167",
+  "vendor": "tinyAVR (classic)",
+  "url": "https://www.microchip.com/en-us/product/ATtiny167",
+  "build": {
+    "mcu": "attiny167",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 16384,
+      "ram": 512,
+      "eeprom": 512
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 16384,
+    "maximum_ram_size": 512,
+    "maximum_eeprom_size": 512,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": ""
+  }
+}

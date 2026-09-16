@@ -1,0 +1,27 @@
+{
+  "name": "ATtiny4313",
+  "vendor": "tinyAVR (classic)",
+  "url": "https://www.microchip.com/en-us/product/ATtiny4313",
+  "build": {
+    "mcu": "attiny4313",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 4096,
+      "ram": 256,
+      "eeprom": 256
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 4096,
+    "maximum_ram_size": 256,
+    "maximum_eeprom_size": 256,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "0x1E920D",
+    "note": ""
+  }
+}

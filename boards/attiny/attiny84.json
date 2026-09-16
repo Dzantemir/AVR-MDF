@@ -1,0 +1,27 @@
+{
+  "name": "ATtiny84",
+  "vendor": "tinyAVR (classic)",
+  "url": "https://www.microchip.com/en-us/product/ATtiny84",
+  "build": {
+    "mcu": "attiny84",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 8192,
+      "ram": 512,
+      "eeprom": 512
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 8192,
+    "maximum_ram_size": 512,
+    "maximum_eeprom_size": 512,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "0x1E930C",
+    "note": ""
+  }
+}

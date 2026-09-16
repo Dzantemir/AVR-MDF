@@ -1,0 +1,27 @@
+{
+  "name": "ATtiny13A",
+  "vendor": "tinyAVR (classic)",
+  "url": "https://www.microchip.com/en-us/product/ATtiny13A",
+  "build": {
+    "mcu": "attiny13a",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 1024,
+      "ram": 64,
+      "eeprom": 64
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 1024,
+    "maximum_ram_size": 64,
+    "maximum_eeprom_size": 64,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "0x1E9007",
+    "note": ""
+  }
+}

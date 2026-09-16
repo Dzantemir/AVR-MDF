@@ -1,0 +1,27 @@
+{
+  "name": "ATtiny817",
+  "vendor": "tinyAVR 1-series",
+  "url": "https://www.microchip.com/en-us/product/ATtiny817",
+  "build": {
+    "mcu": "attiny817",
+    "family": "modern",
+    "f_cpu": "20000000UL",
+    "f_cpu_hz": 20000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 8192,
+      "ram": 512,
+      "eeprom": 128
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 8192,
+    "maximum_ram_size": 512,
+    "maximum_eeprom_size": 128,
+    "protocol": "serialupdi",
+    "speed": "",
+    "signature": "",
+    "note": "Needs a UPDI programmer (serialupdi / jtag2updi / Atmel-ICE / PICkit4 / SNAP)"
+  }
+}

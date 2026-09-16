@@ -1,0 +1,27 @@
+{
+  "name": "ATtiny24",
+  "vendor": "tinyAVR (classic)",
+  "url": "https://www.microchip.com/en-us/product/ATtiny24",
+  "build": {
+    "mcu": "attiny24",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 2048,
+      "ram": 128,
+      "eeprom": 128
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 2048,
+    "maximum_ram_size": 128,
+    "maximum_eeprom_size": 128,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "0x1E9109",
+    "note": ""
+  }
+}

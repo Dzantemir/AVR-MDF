@@ -1,0 +1,26 @@
+{
+  "name": "ATtiny826",
+  "vendor": "tinyAVR 2-series",
+  "build": {
+    "mcu": "attiny826",
+    "family": "modern",
+    "f_cpu": "20000000UL",
+    "f_cpu_hz": 20000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 8192,
+      "ram": 1024,
+      "eeprom": 512
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 8192,
+    "maximum_ram_size": 1024,
+    "maximum_eeprom_size": 512,
+    "protocol": "serialupdi",
+    "speed": "",
+    "signature": "",
+    "note": "Needs a UPDI programmer (serialupdi / jtag2updi / Atmel-ICE / PICkit4 / SNAP)"
+  }
+}

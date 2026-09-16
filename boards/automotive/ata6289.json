@@ -1,0 +1,26 @@
+{
+  "name": "ATA6289",
+  "vendor": "Automotive (ATA)",
+  "build": {
+    "mcu": "ata6289",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 32768,
+      "ram": 2048,
+      "eeprom": 64
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 32768,
+    "maximum_ram_size": 2048,
+    "maximum_eeprom_size": 64,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "Memory values are best-effort — verify in the datasheet"
+  }
+}

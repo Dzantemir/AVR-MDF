@@ -1,0 +1,26 @@
+{
+  "name": "ATtiny28",
+  "vendor": "Legacy tinyAVR",
+  "build": {
+    "mcu": "attiny28",
+    "family": "classic",
+    "f_cpu": "1000000UL",
+    "f_cpu_hz": 1000000,
+    "extra_flags": [],
+    "memory": {
+      "flash": 2048,
+      "ram": 0,
+      "eeprom": 0
+    },
+    "optimization": "s"
+  },
+  "upload": {
+    "maximum_size": 2048,
+    "maximum_ram_size": 0,
+    "maximum_eeprom_size": 0,
+    "protocol": "usbasp",
+    "speed": "",
+    "signature": "",
+    "note": "No SRAM, no EEPROM — avr-gcc arch avr1"
+  }
+}
